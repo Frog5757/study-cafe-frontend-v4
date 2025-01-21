@@ -15,6 +15,7 @@
     "@mui/icons-material": "^6.4.0",
     "@mui/material": "^6.4.0",
     "@mui/styled-engine-sc": "^6.4.0",
+    "@types/axios": "^0.14.4",
     "@types/humps": "^2.0.6",
     "humps": "^2.0.1",
     "react": "^18.3.1",
