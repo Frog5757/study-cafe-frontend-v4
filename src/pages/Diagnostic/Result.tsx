@@ -37,7 +37,7 @@ export const Result: FC<ResultProps> = ({ userAnswers, questions }) => {
             </li>
           ))}
         </ul>
-        <button onClick={handleSaveResult} disabled={isLoading}>
+        <button onClick={handleSaveResult} css={saveResultButton}>
           {isLoading ? "保存中..." : "診断結果を保存する"}
         </button>
         {error && <p style={{ color: "red" }}>{error}</p>}
@@ -53,4 +53,20 @@ const answer = css`
 const answers = css`
   padding-left: 0;
   margin-bottom: 30px;
+`;
+const saveResultButton = css`
+  background: #75bae9de;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+  height: 70px;
+  width: 250px;
+
+  &:hover {
+    background: #5486a8de;
+  }
 `;
