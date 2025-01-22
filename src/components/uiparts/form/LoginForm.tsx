@@ -6,13 +6,12 @@ const LoginForm = () => {
   const { email, setEmail, password, setPassword, handleLogin, loading } =
     useLogin();
 
-
   const isButtonDisabled = !email || !password;
 
   return (
     <form onSubmit={handleLogin} css={loginWrapper}>
       <div>
-        <div css={subTitle}>Email</div>
+        <div css={subTitle}>メールアドレス</div>
         <input
           css={inputWrapper}
           type="email"
@@ -22,7 +21,7 @@ const LoginForm = () => {
         />
       </div>
       <div>
-        <div css={subTitle}>Password</div>
+        <div css={subTitle}>パスワード</div>
         <input
           css={inputWrapper}
           type="password"
@@ -33,10 +32,10 @@ const LoginForm = () => {
       </div>
       <button
         type="submit"
-        disabled={loading || isButtonDisabled} // loading中や未入力の際にボタンを無効化
+        disabled={loading || isButtonDisabled}
         css={loginButton}
       >
-        {loading ? "Logging in..." : "Login"}
+        {loading ? "ログイン中" : "ログイン"}
       </button>
     </form>
   );
