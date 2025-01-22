@@ -81,6 +81,7 @@ const signupButton = css`
   display: block;
   margin: 20px auto;
   padding: 10px 20px;
+  height: 50px;
   font-size: 16px;
   width: 200px;
   background-color: #91e699;
