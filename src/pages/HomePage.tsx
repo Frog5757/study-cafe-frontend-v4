@@ -6,8 +6,6 @@ import { BodyMainTitle } from "../components/uiparts/title/BodyMainTitle";
 import { BodyLayout } from "../components/layouts/BodyLayout";
 import { IconButton } from "../components/uiparts/button/IconButton";
 import ManageSearchIcon from "@mui/icons-material/ManageSearch";
-import axios from "axios";
-const API_URL = import.meta.env.VITE_API_URL;
 export const HomePage = () => (
   <>
 
@@ -30,10 +28,6 @@ export const HomePage = () => (
         />
       </div>
     </BodyLayout>
-    <button onClick={async()=>{
-   const response =  await  axios.get(`${API_URL}/api/hello`)
-   console.log(response.data)
-    }}>テスト</button>
   </>
 );
 
