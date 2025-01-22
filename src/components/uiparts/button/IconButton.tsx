@@ -57,6 +57,11 @@ const buttonWrapper = css`
   &:hover {
     transform: scale(1.1, 1.1);
   }
+
+  @media (max-width: 768px) {
+    height: 150px;
+    width: 150px;
+  }
 `;
 
 const iconName = css`
