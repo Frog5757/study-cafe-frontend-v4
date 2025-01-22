@@ -57,11 +57,6 @@ const buttonWrapper = css`
   &:hover {
     transform: scale(1.1, 1.1);
   }
-
-  @media (max-width: 768px) {
-    height: 150px;
-    width: 150px;
-  }
 `;
 
 const iconName = css`
@@ -69,8 +64,15 @@ const iconName = css`
   color: #ffffff;
   display: flex;
   text-align: center;
+  justify-content: center;
+  align-items: center;
+
   @media (max-width: 768px) {
     font-size: 15px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;  /* Smaller font size on very small screens */
   }
 `;
 

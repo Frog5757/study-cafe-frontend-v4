@@ -6,7 +6,7 @@ const LoginForm = () => {
   const { email, setEmail, password, setPassword, handleLogin, loading } =
     useLogin();
 
-  // emailまたはpasswordが空の場合にボタンを押せないようにする
+
   const isButtonDisabled = !email || !password;
 
   return (
@@ -61,13 +61,13 @@ const loginButton = css`
   padding: 10px 20px;
   font-size: 16px;
   width: 200px;
-  background-color: #91e699;
+  background-color: #8fbeee;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   &:hover {
-    background-color: #6faf75;
+    background-color: #7eacda;
   }
   &:disabled {
     background-color: #d3d3d3;

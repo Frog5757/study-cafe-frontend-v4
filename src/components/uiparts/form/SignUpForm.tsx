@@ -24,6 +24,7 @@ export const SignUpForm: React.FC<SignUpProps> = ({
   confirmPassword,
   setConfirmPassword,
 }) => {
+  const isButtonDisabled = !email || !password || !name || !confirmPassword;
   return (
     <form onSubmit={handleSignUp} css={signupWrapper}>
       <div css={subTitle}>ユーザーネーム</div>
@@ -58,7 +59,7 @@ export const SignUpForm: React.FC<SignUpProps> = ({
         onChange={(e) => setConfirmPassword(e.target.value)}
         placeholder="Confirm Password"
       />
-      <button type="submit" css={signupButton}>
+      <button type="submit" css={signupButton} disabled={isButtonDisabled}>
         新規登録
       </button>
     </form>
@@ -89,4 +90,11 @@ const signupButton = css`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  &:hover {
+    background-color: #75ba7b;
+  }
+  &:disabled {
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+  }
 `;
