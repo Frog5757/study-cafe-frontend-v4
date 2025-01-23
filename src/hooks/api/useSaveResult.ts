@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const API_URL = import.meta.env.VITE_API_URL;
 interface UseSaveResultResponse {
   saveResult: (noAnswers: string[]) => void;
@@ -10,7 +11,7 @@ interface UseSaveResultResponse {
 export const useSaveResult = (): UseSaveResultResponse => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
+  const navigate = useNavigate();
   const saveResult = async (noAnswers: string[]) => {
     setIsLoading(true);
     setError(null);
@@ -28,9 +29,9 @@ export const useSaveResult = (): UseSaveResultResponse => {
           },
         }
       );
-      console.log("診断結果が保存されました！");
+      navigate("/mypage");
     } catch (err) {
-      setError("診断結果の保存に失敗しました");
+      setError("保存にはログインが必要です");
       console.error(err);
     } finally {
       setIsLoading(false);

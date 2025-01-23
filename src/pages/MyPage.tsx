@@ -39,6 +39,7 @@ const handleLogout = async (navigate: NavigateFunction) => {
 export const MyPage = () => {
   const navigate = useNavigate();
   const [results, setResults] = useState<any[]>([]);
+
   useEffect(() => {
     const fetchResults = async () => {
       const token = localStorage.getItem("token");
@@ -62,6 +63,26 @@ export const MyPage = () => {
 
     fetchResults();
   }, [navigate]);
+
+  const handleDelete = async (id: number) => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
+    try {
+      await axios.delete(`${API_URL}/api/results/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      // ローカルの状態から削除
+      setResults(results.filter((result) => result.id !== id));
+    } catch (error) {
+      console.error("Error deleting result:", error);
+    }
+  };
   return (
     <>
       <Header />
@@ -70,10 +91,15 @@ export const MyPage = () => {
         <BodyMainTitle title="保存した診断結果" />
         <ul>
           {results.length > 0 ? (
-            results.map((result, index) => (
-              <li key={index} css={resultList}>
+            results.map((result) => (
+              <li key={result.id} css={resultList}>
                 <p css={getResult}>{result.no_messages}</p>
-                <button css={deleteButton}>削除</button>
+                <button
+                  css={deleteButton}
+                  onClick={() => handleDelete(result.id)}
+                >
+                  削除
+                </button>
               </li>
             ))
           ) : (
@@ -87,6 +113,7 @@ export const MyPage = () => {
     </>
   );
 };
+
 const resultList = css`
   display: flex;
   padding-bottom: 50px;
