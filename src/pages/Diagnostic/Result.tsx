@@ -25,11 +25,10 @@ export const Result: FC<ResultProps> = ({ userAnswers, questions }) => {
   const handleSaveResult = () => {
     saveResult(noAnswers);
   };
-  const mainTitle = "診断結果";
   return (
     <div>
       <BodyLayout>
-        <BodyMainTitle title={mainTitle} />
+        <BodyMainTitle title="診断結果" />
         <ul css={answers}>
           {noAnswers.map((msg, index) => (
             <li css={answer} key={index}>

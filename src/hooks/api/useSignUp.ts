@@ -18,7 +18,7 @@ export const useSignUp = () => {
       });
       const { token } = response.data;
       localStorage.setItem("token", token);
-      navigate("/login");
+      navigate("/mypage");
     } catch (error) {
       console.error("Error during sign up", error);
       alert("新規登録に失敗しました");

@@ -2,10 +2,10 @@
 import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-
+import { useLogout } from "../../hooks/api/useLogout";
 export const Header = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
-
+  const { logout } = useLogout();
   useEffect(() => {
     const handleStorageChange = () => {
       setToken(localStorage.getItem("token"));
@@ -34,9 +34,14 @@ export const Header = () => {
             <li css={HeaderContent}>診断テスト</li>
           </Link>
           {token ? (
-            <Link to="/mypage" css={linkStyle}>
-              <li css={HeaderContent}>マイページ</li>
-            </Link>
+            <>
+              <Link to="/mypage" css={linkStyle}>
+                <li css={HeaderContent}>マイページ</li>
+              </Link>
+              <li css={HeaderContent} onClick={logout}>
+                ログアウト
+              </li>
+            </>
           ) : (
             <>
               <Link to="/login" css={linkStyle}>
