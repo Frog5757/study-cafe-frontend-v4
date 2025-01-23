@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { Header } from "../components/layouts/Header";
 import { PageTitle } from "../components/uiparts/title/PageTitle";
 import { BodyMainTitle } from "../components/uiparts/title/BodyMainTitle";
@@ -66,23 +67,53 @@ export const MyPage = () => {
       <Header />
       <PageTitle title="マイページ" />
       <BodyLayout>
-        <BodyMainTitle title="ユーザー情報" />
-        <button onClick={() => handleLogout(navigate)}>ログアウト</button>
-        <h2>診断結果</h2>
+        <BodyMainTitle title="保存した診断結果" />
         <ul>
           {results.length > 0 ? (
             results.map((result, index) => (
-              <li key={index}>
-                <p>ID: {result.id}</p>
-                <p>診断結果: {result.no_messages}</p>
-                <p>作成日時: {new Date(result.created_at).toLocaleString()}</p>
+              <li key={index} css={resultList}>
+                <p css={getResult}>{result.no_messages}</p>
+                <button css={deleteButton}>削除</button>
               </li>
             ))
           ) : (
             <p>診断結果はありません。</p>
           )}
         </ul>
+        <button onClick={() => handleLogout(navigate)} css={logoutButton}>
+          ログアウト
+        </button>
       </BodyLayout>
     </>
   );
 };
+const resultList = css`
+  display: flex;
+  padding-bottom: 50px;
+  align-items: center;
+`;
+const deleteButton = css`
+  margin-left: 10px;
+  height: 30px;
+  width: 50px;
+  cursor: pointer;
+`;
+const getResult = css`
+  width: 400px;
+`;
+const logoutButton = css`
+  display: block;
+  height: 50px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 200px;
+  background-color: #ee8f8f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: #b16969;
+  }
+`;

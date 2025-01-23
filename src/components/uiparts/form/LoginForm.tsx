@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import { useLogin } from "../../../hooks/api/useLogin";
 
-const LoginForm = () => {
+export const LoginForm = () => {
   const { email, setEmail, password, setPassword, handleLogin, loading } =
     useLogin();
 
@@ -76,4 +76,4 @@ const loginButton = css`
   }
 `;
 
-export default LoginForm;
+
