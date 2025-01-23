@@ -15,6 +15,7 @@ export const useSaveResult = (): UseSaveResultResponse => {
     setIsLoading(true);
     setError(null);
     const token = localStorage.getItem("token");
+    console.log(noAnswers);
     try {
       await axios.post(
         `${API_URL}/api/result`,
