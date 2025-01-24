@@ -113,7 +113,7 @@ const questionDec = css`
 const questionContainer = css`
   color: #878787;
   padding: 20px;
-  margin-top: 100px;
+  margin-top: 40px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
