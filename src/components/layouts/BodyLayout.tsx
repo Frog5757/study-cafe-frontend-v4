@@ -22,6 +22,7 @@ const mainBody = css`
   align-items: center;
   padding: 0 20px;
   box-sizing: border-box;
+  margin-bottom: 100px;
 `;
 
 const bodyContents = css`
