@@ -17,7 +17,7 @@ export const PageTitle: React.FC<PageTitleProps> = ({ title, dec }) => {
 };
 
 const PageTitleWraper = css`
-  height: 250px;
+  height: 200px;
   width: 100%;
   background-color: #fafafa;
   display: flex;
@@ -41,7 +41,7 @@ const PageTitleDec = css`
 `;
 
 const mainTitle = css`
-  font-size: 80px;
+  font-size: 65px;
   letter-spacing: 10px;
   color: #7c7c7c;
 
