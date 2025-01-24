@@ -35,10 +35,10 @@ const buttonStyle = css`
 
   /* レスポンシブ対応 */
   @media (max-width: 768px) {
-    font-size: 25px; /* タブレット画面ではフォントサイズを小さく */
+    font-size: 25px;
     height: 60px;
     width: 180px;
-    padding: 8px 16px; /* パディングを調整 */
+    padding: 8px 16px; 
   }
 
   @media (max-width: 480px) {

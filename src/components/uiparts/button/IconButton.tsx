@@ -23,11 +23,13 @@ export const IconButton: React.FC<ButtonProps> = ({
 }) => {
   const buttonContent = (
     <>
-      <div css={[buttonWrapper, { backgroundColor: bgColor }]}>
-        {icon}
-        <div css={iconName}>{label}</div>
+      <div css={iconButtonWrapper}>
+        <div css={[buttonWrapper, { backgroundColor: bgColor }]}>
+          {icon}
+          <div css={iconName}>{label}</div>
+        </div>
+        {description && <div css={buttonDescription}>{description}</div>}
       </div>
-      {description && <div css={buttonDescription}>{description}</div>}
     </>
   );
 
@@ -41,6 +43,14 @@ export const IconButton: React.FC<ButtonProps> = ({
   return <div onClick={onClick}>{buttonContent}</div>;
 };
 
+const iconButtonWrapper = css`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+`;
+
 const buttonWrapper = css`
   height: 200px;
   width: 200px;
@@ -53,6 +63,7 @@ const buttonWrapper = css`
   transition: 0.5s;
   cursor: pointer;
   position: relative;
+  margin: auto; /* 親要素内で中央揃え */
 
   &:hover {
     transform: scale(1.1, 1.1);
