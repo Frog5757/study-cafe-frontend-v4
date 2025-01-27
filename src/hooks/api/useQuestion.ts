@@ -23,10 +23,7 @@ export const useQuestions = () => {
       .then((response) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const us = response.data.map((a: any) => humps.camelizeKeys(a));
-
-        // 型を Question[] にキャスト
         const typedQuestions = us as Question[];
-
         const sortedQuestions = typedQuestions.sort((a, b) => {
           return parseInt(a.order) - parseInt(b.order); 
         });
